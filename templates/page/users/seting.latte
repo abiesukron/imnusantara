@@ -1,0 +1,96 @@
+{layout '../../main.latte'}
+{block title}{$title}{/block}
+{block content}
+<div class="page">
+    <div class="page-header">
+        <div class="page-info">
+            <div class="display-6">{$title}</div>
+            <div class="breadcrumb">
+                <ul>
+                    <li>
+                        <a href='{$url}'>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li><a href='{$url}users'>Users</a></li>
+                    <li>Seting</li>
+                </ul>
+            </div>
+        </div>
+        <div class="page-option"></div>
+    </div>
+    <div class="row">
+
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div>Seting</div>
+                </div>
+                <div class="card-body">
+                    <div class="list-seting" n:foreach="$seting as $s">
+                        <div class="flex-between item">
+                            <div class="flex-between">
+                                <div class="icon">{$s->icon|noescape}</div>
+                                <div class="label">
+                                    <div class="display-7">{$s->nama}</div>
+                                    <div>{$s->keterangan}</div>
+                                </div>
+                            </div>
+                            <div class="onoff">
+                                <button>
+                                    <span class='{if $s->status == "on"}active{/if}' data-id="{$s->id}" data-label="{$s->nama}"></span>
+                                </button>
+                            </div>
+                        </div>       
+                    </div>             
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{/block}
+
+{block js}
+<script>
+let btnonof = document.querySelectorAll(".onoff");
+if(btnonof){
+    for(let i =0; i<btnonof.length; i++){
+        btnonof[i].children[0].addEventListener("click", ()=>{
+            let span = btnonof[i].children[0].children[0];
+            let spanID = span.dataset.id;
+            let spanLabel = span.dataset.label;
+            let dataonof = "on";
+            if(span.classList.contains("active")){
+                dataonof = "off";
+            }
+            fetch(Baseurl + "api/seting/swicthseting/"+spanID+"/"+dataonof, {
+                method: 'GET',
+                headers: HEADER,
+            }).then(response => response.json()).then(result => {
+                if(result.message == "OK"){
+                    if(span.classList.contains("active")){
+                        span.classList.remove("active");
+                    }else{
+                        span.classList.add("active");
+                    }
+                    Toast({
+                        tipe: 'success',
+                        message: 'Setingan '+spanLabel+' telah diperbarui'
+                    });
+                }else{
+                    Toast({
+                        tipe: 'error',
+                        message: 'Gagal memperbarui setingan'
+                    });
+                }
+            }).catch(error => {
+                console.log(error);
+            });
+        });
+    }
+}
+</script>
+{/block}

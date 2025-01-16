@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Baseurl" content="{$url}">
+    <meta name="Prefix" content="{\AbieSoft\AsetCode\Utilities\Config::envReader('ADMIN_PREFIX')}">
+    <meta name="x-API-key" content="oIalAsd2Iamfj.plqjs">
+    <meta name="x-Form-Key" content="">
+    <link rel="stylesheet" href="{$url}assets/css/style.css">
+    <link rel="stylesheet" href="{$url}assets/css/chart.css">
+    <link rel= "stylesheet" href= "{$url}assets/package/icon8/css/line-awesome.min.css" >
+    {block css}{/block}
+    <title>{block title}{$title}{/block}</title>
+</head>
+<body>
+    {include "theme/components/header.latte"}
+    {include "theme/components/sidebar.latte"}
+
+    {block content}{/block}
+
+    {include "theme/components/footer.latte"}
+    {block popup}{/block}
+    <div id="toasthere"></div>
+    <script src="{$url}assets/js/jquery-3.7.0.js"></script>
+    <script src="{$url}assets/js/style.js"></script>
+    <script src="{$url}assets/js/form.js"></script>
+    <script src="{$url}assets/js/tabel.js"></script>
+    <script src="{$url}assets/js/chart.js"></script>
+    <script src="{$url}assets/js/validasi.js"></script>
+    <script src="{$url}assets/js/toast.js"></script>
+    {block js}{/block}
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+    "name": "abiesoft/fullstack",
+    "description": "AbieSoft Fullstack Sistem Code",
+    "autoload": {
+        "psr-4": {
+            "AbieSoft\\AsetCode\\": "vendor/abiesoft",
+            "App\\Controller\\": "controllers/",
+            "App\\Service\\": "service/",
+            "App\\Model\\": "models/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sukron",
+            "email": "sabbayroad@gmail.com"
+        }
+    ],
+    "require": {
+        "nette/nette": "^3.2",
+        "nette/utils": "^4.0",
+        "firebase/php-jwt": "^6.0",
+        "shuchkin/simplexlsxgen": "^1.4",
+        "symfony/yaml": "^6.4",
+        "phpmailer/phpmailer": "^6.9",
+        "google/apiclient": "~2.0"
+    }
+}

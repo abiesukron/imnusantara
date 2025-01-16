@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --danger: #e22020;
+    --light: #f1f1f1;
+    --putih: #fff;
+    --kuning: #ffc547;
+    --primary: #314263;
+    --primary-hover: #243453;
+    --secondary: #b32222;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    appearance: none;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 11pt;
+    font-weight: 400;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+    background-color: var(--primary);
+    overflow-x: hidden;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.pt34-center {
+    font-size:34pt; text-align: center;
+}
+
+.warning {
+    display: block;
+    background-color: rgba(255, 206, 100, 8);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.auth-container {
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    z-index: 2;
+}
+
+.auth-container>.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.auth-container>.form>.card {
+    width: 100%;
+    max-width: 300px;
+}
+
+.auth-container>.form>.card>.logo {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.auth-container>.form>.card>.label {
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.auth-container>.form>.card>.label>h3 {
+    font-size: 16pt;
+    font-weight: 600;
+    color: var(--light);
+}
+
+.auth-container>.form>.card>.logo>img {
+    width: 80px;
+    opacity: .7;
+    cursor: pointer;
+}
+
+.auth-container>.form>.card>form>.form-grup,
+.auth-container>.form>.card>form>.form-button,
+.auth-container>.form>.card form .form-button {
+    display: block;
+    width: 100%;
+    padding: 7px 0;
+}
+
+.auth-container>.form>.card>form>.form-grup>label {
+    display: block;
+    width: 100%;
+    color: var(--light);
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.auth-container>.form>.card>form>.form-grup>.form-control {
+    display: block;
+    width: 100%;
+    background-color: var(--light);
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.auth-container>.form>.card>form>.form-grup>.form-control:focus {
+    background-color: var(--putih);
+}
+
+.auth-container>.form>.card>form>.form-button>button {
+    display: block;
+    width: 100%;
+    background-color: var(--secondary);
+    padding: 12px 15px;
+    border-radius: 4px;
+    font-weight: 600;
+    color: var(--light);
+    cursor: pointer;
+}
+
+.auth-container>.form>.card> .form-button button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: var(--putih);
+    padding: 12px 15px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.auth-container>.form>.card> .form-button button > img{
+    width: 20px;
+    margin-right: 15px;
+}
+
+.auth-container>.form>.card>.line{
+    position: relative;
+    width: 100%;
+    margin: 20px 0 30px 0;
+    height: 1px;
+    background-color: var(--primary-hover);
+}
+
+.auth-container>.form>.card>.line > span{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 10px 15px;
+    background-color: var(--primary);
+    color:var(--putih);
+    font-weight: 400;
+}
+
+.auth-container>.form>.card .link-area {
+    display: block;
+    padding: 15px 0;
+    color: var(--light);
+    text-align: center;
+}
+
+.auth-container>.form>.card .link-area>a {
+    color: var(--kuning);
+    font-weight: 500;
+}
+
+.auth-container>.cover {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--primary-hover);
+}
+
+.auth-container>.cover>img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.auth-container>.cover>img.logo {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    left: auto;
+    bottom: auto;
+    width: 200px;
+}
+
+
+
+
+/*
+    Media
+*/
+
+
+@media only screen and (max-width: 600px) {
+    .auth-container {
+        grid-template-columns: 100%;
+    }
+
+    .auth-container>.cover {
+        display: none;
+    }
+}
+
+
+@media only screen and (min-width: 600px) {
+    .auth-container {
+        grid-template-columns: 100%;
+    }
+
+    .auth-container>.cover {
+        display: none;
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+    .auth-container {
+        grid-template-columns: 50% 50%;
+    }
+
+    .auth-container>.cover {
+        display: block;
+    }
+}
+
+
+@media only screen and (min-width: 992px) {
+    .auth-container {
+        grid-template-columns: 50% 50%;
+    }
+
+    .auth-container>.cover {
+        display: block;
+    }
+}
+
+
+@media only screen and (min-width: 1200px) {
+    .auth-container {
+        grid-template-columns: 50% 50%;
+    }
+
+    .auth-container>.cover {
+        display: block;
+    }
+}

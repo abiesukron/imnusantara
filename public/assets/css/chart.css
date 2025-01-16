@@ -1,0 +1,237 @@
+/*
+
+    AbieSoft Chart V1.0
+
+*/
+
+@import './style.css';
+
+.text-center {
+    display: block;
+    text-align: center;
+}
+
+.hide {
+    display: none;
+}
+
+.donut_chart {
+    position: relative;
+    min-width: 100px;
+    min-height: 100px;
+    border-radius: 50%;
+    background-color: var(--light-soft);
+    margin: 40px auto;
+}
+
+.donut_chart>.wrapper {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 70%;
+    background-color: var(--putih);
+    border-radius: 50%;
+}
+
+.donut_chart>.wrapper>.cover {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.donut_chart>.wrapper>.cover>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.donut_chart>.wrapper>.number {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    background-color: var(--putih);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20pt;
+    font-weight: 600;
+}
+
+
+
+
+
+
+
+/*
+    Bar Chart
+*/
+
+.bar-horizontal {
+    width: 100%;
+}
+
+.bar-horizontal>.bar-item {
+    width: 100%;
+    height: 32px;
+    position: relative;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.bar-horizontal>.bar-item>.bar-label {
+    position: absolute;
+    width: 130px;
+    height: 100%;
+    overflow: hidden;
+    font-weight: 500;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.bar-horizontal>.bar-item>.bar-progres {
+    position: absolute;
+    left: 150px;
+    right: 70px;
+    height: 100%;
+    background-color: var(--light);
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.bar-horizontal>.bar-item>.bar-progres>.bar-value {
+    width: 0%;
+    height: 100%;
+    background-color: var(--tagline);
+    border-radius: 18px;
+    animation: animBarHorizontal 1s forwards;
+}
+
+.bar-horizontal>.bar-item>.bar-progres>.bar-value:hover {
+    background-color: var(--tagline-hover-min);
+}
+
+@keyframes animBarHorizontal {
+    0% {
+        width: 0%;
+    }
+}
+
+.bar-horizontal>.bar-item>.bar-persen {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    font-weight: 500;
+}
+
+
+
+
+
+
+
+/*
+    Vertical Bar
+*/
+
+.vBar {
+    display: flex;
+    justify-content: center;
+    height: 370px;
+}
+
+.vBar>.bar-block {
+    width: 8.3%;
+    height: 370px;
+    display: block;
+    padding: 0 10px;
+    position: relative;
+}
+
+.vBar>.bar-block>label {
+    display: block;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-weight: 500;
+}
+
+.vBar>.bar-block>.bar-item {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    right: 5px;
+    bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vBar>.bar-block>.bar-item>.item-1>label,
+.vBar>.bar-block>.bar-item>.item-2>label {
+    display: none;
+}
+
+.vBar>.bar-block>.bar-item>.item-1,
+.vBar>.bar-block>.bar-item>.item-2 {
+    position: relative;
+    width: 49%;
+    height: 100%;
+    margin: 0 1px;
+}
+
+.vBar>.bar-block>.bar-item>.item-1>.bar-progres,
+.vBar>.bar-block>.bar-item>.item-2>.bar-progres {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--light-hover);
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.vBar>.bar-block>.bar-item>.item-1>.bar-progres>.bar-values {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--tagline);
+    border-radius: 20px;
+    height: 0;
+    animation: keatas 1s forwards;
+}
+
+.vBar>.bar-block>.bar-item>.item-2>.bar-progres>.bar-values {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--tagline-hover-min);
+    border-radius: 20px 20px 0 0;
+    height: 0;
+    animation: keatas 1s forwards;
+}
+
+@keyframes keatas {
+    0% {
+        height: 0;
+    }
+}

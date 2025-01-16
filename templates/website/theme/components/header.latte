@@ -1,0 +1,47 @@
+<div class="header">
+    <div class="container">
+        {* <div class="header-cover">
+            <img src="{$url}assets/images/website/banner_1.jpg">
+        </div> *}
+    </div>
+    <div class="header-brand">
+        <div class="container flex-between">
+            <img class="pointer" src="{$url}assets/images/website/logo.png" onClick="window.location.href=this.dataset.link" data-link="{$url}">
+            <div class="flex-between">
+                <div class="header-search">
+                    <input id="search" placeholder = "Cari..">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                </div>
+                <button data-model="buttonShowHideMenu">
+                    <svg data-model="buttonShowHideMenu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path data-model="buttonShowHideMenu" stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="header-menu" data-model="showHideMenu">
+        <div class="container">
+            <ul>
+                <li><a href="{$url}">Home</a></li>
+                <li><a href="{$url}berita/index/nasional">Nasional</a></li>
+                <li><a href="{$url}berita/index/institusi">Institusi</a></li>
+                <li><a href="{$url}berita/index/kriminal">Kriminal</a></li>
+                <li><a href="{$url}berita/index/politik">Politik</a></li>
+                <li><a href="{$url}berita/index/kata-warga">Kata Warga</a></li>
+                <li><a href="{$url}berita/index/olah-raga">Olah Raga</a></li>
+                <li><a href="{$url}berita/index/edukasi">Edukasi</a></li>
+                <li><a href="{$url}lipsus">Video Lipsus</a></li>
+                <li><a href="{$url}poling">Klik Poling</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="header-marquee">
+        <div class="container">
+            <div class="header-marquee-label">Highlight</div>
+            <marquee behavior='scroll' direction='left' onmouseover='this.stop();' onmouseout='this.start();' id='hilightList'></marquee>
+        </div>
+    </div>
+</div>

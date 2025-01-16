@@ -1,0 +1,191 @@
+{layout '../../main.latte'}
+{block title}{$title}{/block}
+
+{block content}
+<form id='formInput' name='formInput' method='post'>
+    <div class='page'>
+        <div class='page-header'>
+            <div class='page-info'>
+                <div class='display-6'>{$title}</div>
+                <div class='breadcrumb'>
+                    <ul>
+                        <li><a href='{$url}'><i class='las la-home'></i></a></li>
+                        <li><a href="{$url}{\AbieSoft\AsetCode\Utilities\Config::envReader('ADMIN_PREFIX')}/berita">Berita</a></li>
+                        <li>Form Berita</li>
+                    </ul>
+                </div>
+            </div>
+            <div class='page-option'></div>
+        </div>
+        <div class='row'>
+            <div class='col-12'>
+                <div class='card'>
+                    <div class='card-header'>
+                        <div>Detail Berita</div>
+                    </div>
+                    <div class='card-form'>
+                        <div class='form-grup'>
+                            <label for='judul'>Judul berita</label>
+                            <input class='form-control' id='judul' name='judul' placeholder='Judul Berita' autocomplete='off' autofocus>
+                        </div>
+                        <div class='form-grup'>
+                            <label for='slug'>Slug berita</label>
+                            <input class='form-control' id='showslug' name='showslug' placeholder='Slug berita' autocomplete='off' disabled>
+                            <input type="hidden" id='slug' name='slug'>
+                        </div>
+                        <div class='form-grup'>
+                            <label for='potongan'>Potongan berita</label>
+                            <textarea data-tipe="editor-only" class='form-control' id='potongan' name='potongan' placeholder='Potongan Berita'></textarea>
+                        </div>
+                        <div class='form-grup'>
+                            <label for='isi'>Isi berita</label>
+                            <textarea data-tipe="editor" class='form-control' id='isi' name='isi' placeholder='Isi berita'></textarea>
+                        </div>
+                        <div class='form-grup'>
+                            <label for='cover'>Cover berita</label>
+                            <input type="file" class='form-control' id='cover' name='cover' placeholder='Cover berita'>
+                        </div>                 
+                    </div>
+                </div>
+            </div>
+            <div class='col-12'>
+                <div class='card'>
+                    <div class='card-header'>
+                        <div>Setingan</div>
+                    </div>
+                    <div class='card-form'>
+                        <div class='form-grup'>
+                            <label for='tag'>Tag berita</label>
+                            <input data-tipe="tag" class='form-control' id='tag' name='tag' placeholder='Tag Berita' autocomplete='off'>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class='form-grup'>
+                                    <label for='kategoriid'>Kategori berita</label>
+                                    <select class='form-control' id='kategoriid' name='kategoriid'>
+                                        <option value="">Kategori Berita</option>
+                                        {foreach $kategori as $k}
+                                            <option value="{$k->id}">{$k->nama}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                            </div>
+                            <input type='hidden' id='komentar' name='komentar' value='tidak'>
+                            <!-- <div class="col-6">
+                                <div class='form-grup'>
+                                    <label for='komentar'>Komentar</label>
+                                    <select class='form-control' id='komentar' name='komentar'>
+                                        <option value="">Aktifkan Komentar Berita</option>
+                                        <option value="aktif">Aktif</option>
+                                        <option value="tidak">Matikan</option>
+                                    </select>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='col-12'>
+                <div class='card'>
+                    <div class='card-form'>
+                        <div class='form-grup'>
+                            <div class="form-info">
+                                <div><strong>Jadwal publikasi</strong> digunakan untuk menunda penayangan di halaman website sampai dengan jadwal yang sudah ditentukan. tapi proses publikasi tetap 
+                                menunggu penyuntingan dari <strong>Editor</strong>. Sehingga sekalipun status publikasi <strong>terbit</strong> dan jadwal publikasi <strong>sudah lewat</strong>, berita akan tetap berstatus <strong>pending</strong> 
+                                dan berita tetap akan diterbitkan <strong>setelah proses penyuntingan</strong> dari Editor selesai.</div>
+                                <div class="mt-20">
+                                    <a href="{$url}{\AbieSoft\AsetCode\Utilities\Config::envReader('ADMIN_PREFIX')}/berita">
+                                        <span>Lihat berita-berita yang sudah anda buat disini</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class='form-grup'>
+                                    <label for='publikasi'>Publikasi</label>
+                                    <select class='form-control' id='publikasi' name='publikasi'>
+                                        <option value="">Publikasi</option>
+                                        <option value="terbit">Terbit</option>
+                                        <option value="draft">Draft</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class='form-grup'>
+                                    <label for='jadwal'>Jadwal Publikasi</label>
+                                    <input type="datetime-local" class='form-control' id='jadwal' name='jadwal' placeholder='Jadwal publikasi' autocomplete='off'>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='form-button'>
+                            <button class='btn btn-primary'><span id='btnSubmit'>Simpan</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{/block}
+
+{block js}
+<script>
+let formInput = el('#formInput');
+formInput.addEventListener('submit', (e)=>{
+    e.preventDefault();
+
+    let val = validasi({
+        formID: 'formInput',
+        validate: [
+            'judul|setText',
+            'potongan|setText',
+            'isi|setText',
+            'cover|setText',
+            'tag|setPilihan',
+            'kategoriid|setPilihan',
+            'komentar|setPilihan',
+            'publikasi|setPilihan',
+            'jadwal|setText'
+        ],
+    });
+
+    if(val){
+        submitForm({
+            formID: 'formInput',
+            loadingLabel: 'Menyimpan..',
+            tabel: 'berita',
+            labelButton: 'Simpan',
+            messageSuccess: 'Berita telah dibuat',
+            resetForm: [
+                'judul',
+                'potongan',
+                'isi',
+                'cover',
+                'tag',
+                'kategoriid',
+                'komentar',
+                'publikasi',
+                'jadwal'
+            ],
+            focus: 'judul'
+        });
+
+    }
+});
+
+
+let inputJudul = el("#judul");
+if(inputJudul){
+    inputJudul.addEventListener("keyup", ()=>{
+        let showslug = el("#showslug");
+        let slug = el("#slug");
+        showslug.value = slugRemoverChar(inputJudul.value);
+        slug.value = slugRemoverChar(inputJudul.value);
+    });
+}
+</script>
+{/block}

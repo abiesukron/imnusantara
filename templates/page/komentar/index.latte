@@ -1,0 +1,65 @@
+{layout '../../main.latte'}
+{block title}{$title}{/block}
+
+{block content}
+<div class='page'>
+    <div class='page-header'>
+        <div class='page-info'>
+            <div class='display-6'>{$title}</div>
+            <div class='breadcrumb'>
+                <ul>
+                    <li><a href='{$url}'><i class='las la-home'></i></a></li>
+                    <li>Komentar</li>
+                </ul>
+            </div>
+        </div>
+        <div class='page-option'>
+            <form>
+                <div class='btn-grup'>
+                    <button type='button' class='refresh' onClick='abiesoftTabel({
+                        id: "tabelkomentar",
+                        aktif: 1,
+                        perpage: 10
+                    })' title='refresh tabel'><i class='las la-sync-alt'></i></button>
+                    <button class='download-excel' type='button' data-tabel='komentar' title='Simpan tabel sebagai file excel'><i class='las la-download'></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-12'>
+            <div class='card'>
+                <div class='card-table' id='tabelkomentar'>
+                    <table class='minW-800'>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Opsi</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                        <tfoot>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>Opsi</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+
+{block js}
+<script>
+abiesoftTabel({
+    id: 'tabelkomentar',
+    aktif: 1,
+    perpage: 10
+});
+</script>
+{/block}

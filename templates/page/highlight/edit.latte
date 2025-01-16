@@ -1,0 +1,70 @@
+{layout '../../main.latte'}
+{block title}{$title}{/block}
+
+{block content}
+<form id='formInput' name='formInput' method='post'>
+    <div class='page'>
+        <div class='page-header'>
+            <div class='page-info'>
+                <div class='display-6'>{$title}</div>
+                <div class='breadcrumb'>
+                    <ul>
+                        <li><a href='{$url}'><i class='las la-home'></i></a></li>
+                        <li><a href='{$url}{\AbieSoft\AsetCode\Utilities\Config::envReader("ADMIN_PREFIX")}/highlight'>Highlight</a></li>
+                        <li>Edit</li>
+                    </ul>
+                </div>
+            </div>
+            <div class='page-option'></div>
+        </div>
+        <div class='row'>
+            <div class='col-6'>
+                <div class='card'>
+                    <div class='card-header'>
+                        <div>Form Edit highlight</div>
+                    </div>
+                    <div class='card-form'>
+                        <div class='form-grup'>
+                            <label for='nama'>Nama</label>
+                            <input class='form-control' id='nama' name='nama' placeholder='Nama' autocomplete='off' autofocus>
+                        </div>
+                        <div class='form-button'>
+                            <input type='hidden' id='__method' name='__method' value='PATCH'>
+                            <input type='hidden' id='id' name='id' value='{$id}'>
+                            <button class='btn btn-primary'><span id='btnSubmit'>Simpan</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{/block}
+
+{block js}
+<script>
+let formInput = el('#formInput');
+formInput.addEventListener('submit', (e)=>{
+    e.preventDefault();
+
+    let val = validasi({
+        formID: 'formInput',
+        validate: [
+        'nama|setText'
+        ],
+    });
+
+    if(val){
+        submitForm({
+            formID: 'formInput',
+            loadingLabel: 'Menyimpan..',
+            tabel: 'highlight',
+            labelButton: 'Simpan',
+            messageSuccess: 'Highlight telah diupdate',
+            focus: 'nama'
+        });
+
+    }
+});
+</script>
+{/block}

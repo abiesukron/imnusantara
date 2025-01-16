@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Baseurl" content="{$url}">
+    <meta name="x-API-key" content="{\AbieSoft\AsetCode\Utilities\Config::envReader('APIKEY')}">
+    <meta name="x-Form-Key" content="">
+    <meta name="page" content="{$page}">
+    <link rel="stylesheet" href="{$url}assets/css/website/style.css">
+    <link rel="stylesheet" href="{$url}assets/css/website/style_max_600.css">
+    <link rel="stylesheet" href="{$url}assets/css/website/style_min_600.css">
+    <link rel="stylesheet" href="{$url}assets/css/website/style_min_768.css">
+    <link rel="stylesheet" href="{$url}assets/css/website/style_min_992.css">
+    <link rel="stylesheet" href="{$url}assets/css/website/style_min_1280.css">
+    {block css}{/block}
+    <title>{block title}{$title}{/block}</title>
+</head>
+<body>
+    {include "theme/components/header.latte"}
+
+    <div class="page">
+        {block content}{/block}
+    </div>
+
+    {include "theme/components/footer.latte"}
+    {include "theme/components/scrollevent.latte"}
+    {block popup}{/block}
+    <script src="{$url}assets/js/jquery-3.7.0.js"></script>
+    <script src="{$url}assets/js/form.js"></script>
+    <script src="{$url}assets/js/validasi.js"></script>
+    <script src="{$url}assets/js/toast.js"></script>
+    <script src="{$url}assets/js/website/script.js"></script>
+    <script n:syntax="off"></script>
+    {block js}{/block}
+</body>
+</html>

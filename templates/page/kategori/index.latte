@@ -1,0 +1,139 @@
+{layout '../../main.latte'}
+{block title}{$title}{/block}
+{block content}
+<div class="page">
+    <div class="page-header">
+        <div class="page-info">
+            <div class="display-6">{$title}</div>
+            <div class="breadcrumb">
+                <ul>
+                    <li>
+                        <a href='{$url}'>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li>Kategori</li>
+                </ul>
+            </div>
+        </div>
+        <div class="page-option">
+            <form>
+                <div class="btn-grup">
+                    <button type="button" class="refresh" onClick="abiesoftTabel({
+                        id: 'tabelkategori',
+                        aktif: 1,
+                        perpage: 10
+                    })" title="refresh tabel"><i class="las la-sync-alt"></i></button>
+                    <button class="download-excel" type="button" data-tabel="kategori" title="Simpan tabel sebagai file excel"><i class="las la-download"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    <div>Form Kategori</div>
+                </div>
+                <div class="card-form">
+                    <form id="formInput" name="formInput" method="post">
+                        <div class="form-grup">
+                            <label for="nama">Nama Kategori</label>
+                            <input class="form-control" id="nama" name="nama" placeholder="Masukan nama kategori baru" autocomplete="off">
+                        </div>
+                        <div class="form-button">
+                            <button class="btn btn-primary"><span id="btnSubmit">Simpan</span></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="card">
+                <div class="card-table" id="tabelkategori">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Kategori</th>
+                                <th>Opsi</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Kategori</th>
+                                <th>Opsi</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{/block}
+
+{block js}
+<script>
+let formInput = el("#formInput");
+formInput.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    let nama = document.forms["formInput"]["nama"];
+    let btnSubmit = el("#btnSubmit");
+
+    if(setText(nama.value)){
+        Toast({
+            tipe: 'error',
+            message: 'Nama '+setText(nama.value)
+        });
+        nama.focus();
+    }else{
+        btnSubmit.innerHTML = "Menyimpan..";
+        const form = document.querySelector('form[id="formInput"]');
+        const formData = new FormData(form);
+        fetch(Baseurl + 'api/kategori', {
+            method: 'POST',
+            headers: HEADERFORM,
+            body: formData
+        }).then(response => response.text()).then(pesan => {
+            btnSubmit.innerHTML = "Simpan";
+            if(pesan == "Berhasil"){
+                nama.value = "";
+                abiesoftTabel({
+                    id: 'tabelkategori',
+                    aktif: 1,
+                    perpage: 10
+                });
+                Toast({
+                    tipe: 'success',
+                    message: 'Kategori baru sudah dibuat'
+                });
+            }else{
+                Toast({
+                    tipe: 'error',
+                    message: pesan
+                });
+            }
+        }).catch(error => {
+            btnSubmit.innerHTML = "Simpan";
+            Toast({
+                tipe: 'error',
+                message: error
+            });
+        });
+    }
+});
+
+abiesoftTabel({
+    id: 'tabelkategori',
+    aktif: 1,
+    perpage: 10
+});
+</script>
+{/block}

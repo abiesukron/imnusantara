@@ -1,0 +1,88 @@
+{layout '../../main.latte'}
+{block title}{$title}{/block}
+
+{block content}
+<form id='formInput' name='formInput' method='post'>
+    <div class='page'>
+        <div class='page-header'>
+            <div class='page-info'>
+                <div class='display-6'>{$title}</div>
+                <div class='breadcrumb'>
+                    <ul>
+                        <li><a href='{$url}'><i class='las la-home'></i></a></li>
+                        <li><a href='{$url}{\AbieSoft\AsetCode\Utilities\Config::envReader("ADMIN_PREFIX")}/highlight'>Highlight</a></li>
+                        <li>Buat</li>
+                    </ul>
+                </div>
+            </div>
+            <div class='page-option'></div>
+        </div>
+        <div class='row'>
+            <div class='col-6'>
+                <div class='card'>
+                    <div class='card-header'>
+                        <div>Form Buat highlight</div>
+                    </div>
+                    <div class='card-form'>
+                        <div class='form-grup'>
+                            <label for='judul'>Judul</label>
+                            <input class='form-control' id='judul' name='judul' placeholder='Judul highlight' autofocus>
+                        </div>
+                        <div class='form-grup'>
+                            <label for='link'>Link terkait</label>
+                            <input class='form-control' id='link' name='link' placeholder='Link berita/ yang terkait judul'>
+                        </div>
+                        <div class='form-grup'>
+                            <label for='status'>Status</label>
+                            <select class='form-control' id='status' name='status'>
+                                <option value=''>Pilih Status Publikasi</option>
+                                <option value='Aktif'>Aktif</option>
+                                <option value='Tidak'>Tidak</option>
+                            </select>
+                        </div>
+                        <div class='form-grup'>
+                            <label for='expire'>Tanggal expire</label>
+                            <input type='date' class='form-control' id='expire' name='expire'>
+                        </div>
+                        <div class='form-button'>
+                            <button class='btn btn-primary'><span id='btnSubmit'>Simpan</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{/block}
+
+{block js}
+<script>
+let formInput = el('#formInput');
+formInput.addEventListener('submit', (e)=>{
+    e.preventDefault();
+
+    let val = validasi({
+        formID: 'formInput',
+        validate: [
+        'judul|setText',
+        'link|setText',
+        'status|setPilihan',
+        'expire|setText',
+        ],
+    });
+
+    if(val){
+        submitForm({
+            formID: 'formInput',
+            loadingLabel: 'Menyimpan..',
+            tabel: 'highlight',
+            labelButton: 'Simpan',
+            messageSuccess: 'Highlight telah dibuat',
+            resetForm: ['judul','link','status','expire'],
+            focus: 'judul'
+        });
+
+    }
+});
+</script>
+{/block}

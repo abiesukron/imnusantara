@@ -1,0 +1,23 @@
+administrator:
+  home: I
+  users: IECRUD
+  wilayah: IECRUD
+  grup: ID
+  kategori: ID
+  berita: IECRUD
+
+penulis:
+  home: I
+  users: IECRUD
+  wilayah: ""
+  grup: ""
+  kategori: ""
+  berita: IECRUD
+
+editor:
+  home: I
+  users: IECRUD
+  wilayah: ""
+  grup: ""
+  kategori: ""
+  berita: ""

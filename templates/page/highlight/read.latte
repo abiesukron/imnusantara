@@ -1,0 +1,33 @@
+{layout '../../main.latte'}
+{block title}{$title}{/block}
+
+{block content}
+<form id='formInput' name='formInput' method='post'>
+    <div class='page'>
+        <div class='page-header'>
+            <div class='page-info'>
+                <div class='display-6'>{$title}</div>
+                <div class='breadcrumb'>
+                    <ul>
+                        <li><a href='{$url}'><i class='las la-home'></i></a></li>
+                        <li><a href='{$url}{\AbieSoft\AsetCode\Utilities\Config::envReader("ADMIN_PREFIX")}/highlight'>Highlight</a></li>
+                        <li>Detail</li>
+                    </ul>
+                </div>
+            </div>
+            <div class='page-option'></div>
+        </div>
+        <div class='row'>
+            <div class='col-6'>
+                <div class='card'>
+                    <div class='card-body'>
+                        Detail highlight
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{/block}
+
+{block js}{/block}
