@@ -19,53 +19,39 @@ final class Template_96e814ea7a extends Latte\Runtime\Template
             <div class="col-8">
                 <div class="card">
                     <div class="cover-home owl-carousel owl-theme" style=\'height: 580px;\'>
-                        <a href=\'https://tagline.id/berita/r/garpiya-ai-drone-tempur-produksi-rusia-dan-cina\' class=\'item i\'> 
-                            <div class=\'cover\'>
-                                <img src=\'https://tagline.id/assets/storage/LSUcN4m85xT3/images/14092024181408_drone rusia.jpg\'>
-                            </div>
-                            <div class=\'title\'>
-                                <h4>Garpia AI Drone tempur produksi rusia dan cina</h4>
-                            </div>
-                        </a>
-                        <a href=\'https://tagline.id/berita/r/mega-dan-prabowo-susun-agenda-pertemuan-gerindra-dan-pdip-berkoalisi-\' class=\'item i\'> 
-                            <div class=\'cover\'>
-                                <img src=\'https://tagline.id/assets/storage/LSUcN4m85xT3/images/14092024174321_Untitled-1.jpg\'>
-                            </div>
-                            <div class=\'title\'>
-                                <h4>Mega dan Prabowo Susun Agenda Pertemuan Gerinda dan PDIP Berkoalisi</h4>
-                            </div>
-                        </a>
-                        <a href=\'https://tagline.id/berita/r/hakim-pn-bandung-penetapan-tersangka-tidak-sah-pegi-setiawan-bebas\' class=\'item i\'> 
-                            <div class=\'cover\'>
-                                <img src=\'https://tagline.id/assets/storage/LSUcN4m85xT3/images/10072024214835_PEGI.jpg\'>
-                            </div>
-                            <div class=\'title\'>
-                                <h4>Hakim PN Bandung tetapkan tersangka tidak sah pegi setiawan bebas</h4>
-                            </div>
-                        </a> 
-                        <a href=\'https://tagline.id/berita/r/-waspada-virus-intoleransi-di-cisauk-tangerang-selatan-polisi-turun-tangan-empat-orang-jadi-tersangka\' class=\'item i\'> 
-                            <div class=\'cover\'>
-                                <img src=\'https://tagline.id/assets/storage/LSUcN4m85xT3/images/07052024213824_tangsel1.jpg\'>
-                            </div>
-                            <div class=\'title\'>
-                                <h4>Waspada virus intoleransi di Cisauk Tangerang Selatan Polisi Turun Tangan Empat Orang Jadi Tersangka</h4>
-                            </div>
-                        </a> 
-                    </div> 
+
+';
+		foreach ($beritautama as $bu) /* line 9 */ {
+			echo '                            <a href=\'';
+			echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($url)) /* line 10 */;
+			echo 'berita/baca/';
+			echo LR\Filters::escapeHtmlAttr(explode(' ', str_replace('-', '/', $bu->dibuat))[0]) /* line 10 */;
+			echo '/';
+			echo LR\Filters::escapeHtmlAttr($bu->slug) /* line 10 */;
+			echo '\' class=\'item i\'> 
+                                <div class=\'cover\'>
+                                    <img src=\'';
+			echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($url)) /* line 12 */;
+			echo LR\Filters::escapeHtmlAttr($bu->cover) /* line 12 */;
+			echo '\'>
+                                </div>
+                                <div class=\'title\'>
+                                    <h4>';
+			echo LR\Filters::escapeHtmlText($bu->judul) /* line 15 */;
+			echo '</h4>
+                                </div>
+                            </a>
+';
+
+		}
+
+		echo '                    </div> 
                 </div>
             </div>
             <div class="col-4">
                 <div class="card">
                     <div class="card-badge">
                         <label class="badge-label">Terbaru</label>
-                        <button onClick="window.location.href=this.dataset.link" data-link="';
-		echo LR\Filters::escapeHtmlAttr($url) /* line 47 */;
-		echo 'berita/index">
-                            <span>Index</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                                <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
                     </div>
                     <div class="card-list" id="terbaru">
 
@@ -131,5 +117,18 @@ final class Template_96e814ea7a extends Latte\Runtime\Template
         </div>
     </div>
 </section>';
+	}
+
+
+	public function prepare(): array
+	{
+		extract($this->params);
+
+		if (!$this->getReferringTemplate() || $this->getReferenceType() === 'extends') {
+			foreach (array_intersect_key(['bu' => '9'], $this->params) as $ʟ_v => $ʟ_l) {
+				trigger_error("Variable \$$ʟ_v overwritten in foreach on line $ʟ_l");
+			}
+		}
+		return get_defined_vars();
 	}
 }

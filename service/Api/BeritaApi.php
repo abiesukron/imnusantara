@@ -9,6 +9,7 @@ use AbieSoft\AsetCode\Utilities\Input;
 use AbieSoft\AsetCode\Utilities\Guard;
 use AbieSoft\AsetCode\Utilities\Metafile;
 use App\Model\Berita;
+use App\Model\Kategori;
 use App\Service\Service;
 use Nette\Utils\Html;
 use Shuchkin\SimpleXLSXGen;
@@ -68,6 +69,7 @@ class BeritaApi extends Service
         if (count($parameter) > 0) {
             return match ($parameter[0]) {
                 'terbaru' => $this->terbaru(),
+                'populer' => $this->populer(),
                 'kriminal' => $this->kriminal(),
                 'nasional' => $this->nasional(),
                 'politik' => $this->politik(),
@@ -78,6 +80,7 @@ class BeritaApi extends Service
                 'olahraga' => $this->olahraga(),
                 'internasional' => $this->internasional(),
                 'edukasi' => $this->edukasi(),
+                'terkait' => $this->terkait($parameter),
                 'index_kriminal' => $this->indexkriminal(),
                 'index_nasional' => $this->indexnasional(),
                 'index_politik' => $this->indexpolitik(),
@@ -297,7 +300,29 @@ class BeritaApi extends Service
     {
         $data = [];
 
-        $cek = DB::terhubung()->query("SELECT id, slug, judul, cover, jadwal as tglpublis FROM berita WHERE publikasi = 'terbit' AND editor != '0' ORDER BY id DESC LIMIT 5")->hasil();
+        $cek = DB::terhubung()->query("SELECT id, slug, judul, cover, jadwal as tglpublis FROM berita WHERE publikasi = 'terbit' AND editor != '0' ORDER BY id DESC LIMIT 5 OFFSET 5")->hasil();
+
+        foreach ($cek as $c) {
+            $item = [];
+            $item['slug'] = $c->slug;
+            $item['judul'] = $c->judul;
+            $item['cover'] = Config::baseURL() . $c->cover;
+            $item['tglpublis'] = $c->tglpublis;
+            array_push($data, $item);
+        }
+
+        $result = [];
+        $result['code'] = 200;
+        $result['message'] = 'OK';
+        $result['data'] = $data;
+        echo json_encode($result);
+    }
+
+    protected function populer()
+    {
+        $data = [];
+
+        $cek = DB::terhubung()->query("SELECT id, slug, judul, cover, jadwal as tglpublis FROM berita WHERE publikasi = 'terbit' AND editor != '0' ORDER BY dibaca DESC LIMIT 8")->hasil();
 
         foreach ($cek as $c) {
             $item = [];
@@ -521,6 +546,36 @@ class BeritaApi extends Service
         $data = [];
 
         $cek = DB::terhubung()->query("SELECT id, slug, judul, potongan, cover, jadwal as tglpublis FROM berita WHERE publikasi = 'terbit' AND editor != '0' AND kategoriid = '7' ORDER BY id DESC LIMIT 5")->hasil();
+
+        foreach ($cek as $c) {
+            $item = [];
+            $item['slug'] = $c->slug;
+            $item['judul'] = $c->judul;
+            $item['potongan'] = strip_tags(Html::htmlToText($c->potongan));
+            $item['cover'] = Config::baseURL() . $c->cover;
+            $item['tglpublis'] = $c->tglpublis;
+            array_push($data, $item);
+        }
+
+        $result = [];
+        $result['code'] = 200;
+        $result['message'] = 'OK';
+        $result['data'] = $data;
+        echo json_encode($result);
+    }
+
+    protected function terkait($parameter)
+    {
+
+        $data = [];
+
+        $cek = DB::terhubung()->query("SELECT id, slug, judul, potongan, cover, jadwal as tglpublis FROM berita WHERE publikasi = 'terbit' AND editor != '0' AND isi LIKE '%".Kategori::only(select:'nama', id:Berita::only(select:'kategoriid', id:$parameter[1], output:'string'),output:'string')."%' AND id !='".$parameter[1]."' ORDER BY id DESC LIMIT 5");
+
+        if($cek->hitung() == 0){
+            $cek = DB::terhubung()->query("SELECT id, slug, judul, potongan, cover, jadwal as tglpublis FROM berita WHERE publikasi = 'terbit' AND editor != '0' AND kategoriid = '1' AND id !='".$parameter[1]."' ORDER BY id DESC LIMIT 5")->hasil();
+        }else{
+            $cek = $cek->hasil();
+        }
 
         foreach ($cek as $c) {
             $item = [];

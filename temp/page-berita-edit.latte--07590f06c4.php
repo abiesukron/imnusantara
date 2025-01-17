@@ -23,7 +23,7 @@ final class Template_07590f06c4 extends Latte\Runtime\Template
 ';
 		$this->renderBlock('content', get_defined_vars()) /* line 4 */;
 		echo "\n";
-		$this->renderBlock('js', get_defined_vars()) /* line 145 */;
+		$this->renderBlock('js', get_defined_vars()) /* line 148 */;
 	}
 
 
@@ -178,20 +178,23 @@ final class Template_07590f06c4 extends Latte\Runtime\Template
 		echo '                                    </select>
                                 </div>
                             </div>
+                            <input type=\'hidden\' id=\'komentar\' name=\'komentar\' value=\'tidak\'>
+                            <!-- 
                             <div class="col-6">
                                 <div class=\'form-grup\'>
                                     <label for=\'komentar\'>Komentar</label>
                                     <select class=\'form-control\' id=\'komentar\' name=\'komentar\'>
                                         <option value="';
-		echo LR\Filters::escapeHtmlAttr($komentar) /* line 86 */;
+		echo LR\Filters::escapeHtmlComment($komentar) /* line 88 */;
 		echo '">';
-		echo LR\Filters::escapeHtmlText(($this->filters->capitalize)($komentar)) /* line 86 */;
+		echo LR\Filters::escapeHtmlComment(($this->filters->capitalize)($komentar)) /* line 88 */;
 		echo '</option>
                                         <option value="aktif">Aktif</option>
                                         <option value="tidak">Matikan</option>
                                     </select>
                                 </div>
                             </div>
+                            -->
                         </div>
                     </div>
                 </div>
@@ -206,8 +209,8 @@ final class Template_07590f06c4 extends Latte\Runtime\Template
                                 dan berita tetap akan diterbitkan <strong>setelah proses penyuntingan</strong> dari Editor selesai.</div>
                                 <div class="mt-20">
                                     <a href="';
-		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($url)) /* line 105 */;
-		echo LR\Filters::escapeHtmlAttr(\AbieSoft\AsetCode\Utilities\Config::envReader('ADMIN_PREFIX')) /* line 105 */;
+		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($url)) /* line 108 */;
+		echo LR\Filters::escapeHtmlAttr(\AbieSoft\AsetCode\Utilities\Config::envReader('ADMIN_PREFIX')) /* line 108 */;
 		echo '/berita">
                                         <span>Lihat berita-berita yang sudah anda buat disini</span>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -223,9 +226,9 @@ final class Template_07590f06c4 extends Latte\Runtime\Template
                                     <label for=\'publikasi\'>Publikasi</label>
                                     <select class=\'form-control\' id=\'publikasi\' name=\'publikasi\'>
                                         <option value="';
-		echo LR\Filters::escapeHtmlAttr($publikasi) /* line 119 */;
+		echo LR\Filters::escapeHtmlAttr($publikasi) /* line 122 */;
 		echo '">';
-		echo LR\Filters::escapeHtmlText(($this->filters->capitalize)($publikasi)) /* line 119 */;
+		echo LR\Filters::escapeHtmlText(($this->filters->capitalize)($publikasi)) /* line 122 */;
 		echo '</option>
                                         <option value="terbit">Terbit</option>
                                         <option value="draft">Draft</option>
@@ -236,14 +239,14 @@ final class Template_07590f06c4 extends Latte\Runtime\Template
                                 <div class=\'form-grup\'>
                                     <label for=\'jadwal\'>Jadwal Publikasi</label>
                                     <input type="datetime-local" class=\'form-control\' id=\'jadwal\' name=\'jadwal\' value="';
-		echo LR\Filters::escapeHtmlAttr($jadwal) /* line 128 */;
+		echo LR\Filters::escapeHtmlAttr($jadwal) /* line 131 */;
 		echo '" placeholder=\'Jadwal publikasi\' autocomplete=\'off\'>
                                 </div>
                             </div>
                         </div>
                         <div class=\'form-button\'>
                             <input type="hidden" id="id" name="id" value="';
-		echo LR\Filters::escapeHtmlAttr($id) /* line 133 */;
+		echo LR\Filters::escapeHtmlAttr($id) /* line 136 */;
 		echo '">
                             <input type="hidden" id="__method" name="__method" value="PATCH">
                             <button class=\'btn btn-primary\'><span id=\'btnSubmit\'>Simpan Perubahan</span></button>
@@ -258,7 +261,7 @@ final class Template_07590f06c4 extends Latte\Runtime\Template
 	}
 
 
-	/** {block js} on line 145 */
+	/** {block js} on line 148 */
 	public function blockJs(array $ʟ_args): void
 	{
 		echo '<script>

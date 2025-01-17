@@ -52,6 +52,38 @@ fetch(Baseurl + "api/berita/terbaru", {
 
 
 /*
+    Populer
+
+    --------------------
+*/
+fetch(Baseurl + "api/berita/populer", {
+    method: 'GET',
+    headers: HEADER,
+}).then(response => response.json()).then(result => {
+    if(result.message == "OK"){
+        let populer = document.getElementById("populer");
+        let konten = "";
+        let link = "";
+        let th = "";
+        for(let i=0; i<result.data.length; i++){
+            th = result.data[i].tglpublis.split(" ")[0].replaceAll("-","/");
+            link = Baseurl +'berita/baca/'+th+'/'+result.data[i].slug;
+            konten += `
+                <a href="`+link+`" class='item'>
+                    <div>`+(i+1)+`</div>
+                    <div>`+result.data[i].judul+`</div>
+                </a>
+            `;
+        }
+
+        populer.innerHTML = konten;
+    }
+}).catch(error => {
+    console.log(error);
+});
+
+
+/*
     Nasional
 
     --------------------

@@ -23,7 +23,7 @@ final class Template_c3348d5d7f extends Latte\Runtime\Template
 ';
 		$this->renderBlock('content', get_defined_vars()) /* line 4 */;
 		echo "\n";
-		$this->renderBlock('js', get_defined_vars()) /* line 134 */;
+		$this->renderBlock('js', get_defined_vars()) /* line 135 */;
 	}
 
 
@@ -142,7 +142,8 @@ final class Template_c3348d5d7f extends Latte\Runtime\Template
 		echo '                                    </select>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <input type=\'hidden\' id=\'komentar\' name=\'komentar\' value=\'tidak\'>
+                            <!-- <div class="col-6">
                                 <div class=\'form-grup\'>
                                     <label for=\'komentar\'>Komentar</label>
                                     <select class=\'form-control\' id=\'komentar\' name=\'komentar\'>
@@ -151,7 +152,7 @@ final class Template_c3348d5d7f extends Latte\Runtime\Template
                                         <option value="tidak">Matikan</option>
                                     </select>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -166,8 +167,8 @@ final class Template_c3348d5d7f extends Latte\Runtime\Template
                                 dan berita tetap akan diterbitkan <strong>setelah proses penyuntingan</strong> dari Editor selesai.</div>
                                 <div class="mt-20">
                                     <a href="';
-		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($url)) /* line 96 */;
-		echo LR\Filters::escapeHtmlAttr(\AbieSoft\AsetCode\Utilities\Config::envReader('ADMIN_PREFIX')) /* line 96 */;
+		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($url)) /* line 97 */;
+		echo LR\Filters::escapeHtmlAttr(\AbieSoft\AsetCode\Utilities\Config::envReader('ADMIN_PREFIX')) /* line 97 */;
 		echo '/berita">
                                         <span>Lihat berita-berita yang sudah anda buat disini</span>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -208,7 +209,7 @@ final class Template_c3348d5d7f extends Latte\Runtime\Template
 	}
 
 
-	/** {block js} on line 134 */
+	/** {block js} on line 135 */
 	public function blockJs(array $ʟ_args): void
 	{
 		echo '<script>

@@ -16,14 +16,14 @@
     --color-white-hover-2: #f3f3f3;
     --color-abu-abu: #eee;
     --color-merah: #fc3134;
-    --color-biru: #119ec9;
+    --color-biru: #1a1c3b;
     --color-hijau: #0b9e7e;
-    --color-primary: #08707e;
+    --color-primary: rgb(27, 29, 58);
     --color-primary-transparan: rgba(49, 66, 99, .85);
     --color-primary-merah: #e22020;
     --color-primary-transparan-hover: rgba(49, 66, 99, 1);
     --box-shadow: 0 2rem 3rem #3a3a3a;
-    --primary: #00b2c9;
+    --primary: #1f4045;
     --secondary: #ffd40c;
 }
 
@@ -530,6 +530,11 @@ section.putih {
     padding-bottom: 20px;
 }
 
+.card > .card-list.overflow-off {
+    height: auto;
+    overflow: unset;
+}
+
 .card > .card-list::-webkit-scrollbar,
 .card > .card-list::-webkit-scrollbar-thumb,
 .card > .card-list::-webkit-scrollbar-track {
@@ -730,6 +735,36 @@ section.putih {
     font-size: 10pt;
     margin-top: 5px;
     color: var(--color-gray-2);
+}
+
+.card > .card-populer > a.item{
+    display: block;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.card > .card-populer > a.item:nth-child(1){
+    margin-top: 20px;
+}
+
+.card > .card-populer > a.item > div:nth-child(1){
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40pt;
+}
+
+.card > .card-populer > a.item > div:nth-child(2){
+    min-height: 50px;
+    padding-left: 60px;
+    font-size: 13pt;
+    font-weight: 600;
 }
 
 .cover-home {
@@ -1335,6 +1370,9 @@ section.putih {
     color: var(--color-dark);
 }
 
+.read .isi-berita{
+    line-height: 1.8rem;
+}
 
 .read .cover {
     display: block;
@@ -1413,7 +1451,7 @@ section.putih {
 }
 
 .read .komentar {
-    display: block;
+    display: none;
     padding: 10px 0;
     border-bottom: 1px solid var(--color-abu-abu);
 }

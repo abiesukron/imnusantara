@@ -21,7 +21,7 @@ final class Template_79a23a9d5d extends Latte\Runtime\Template
 		echo "\n";
 		$this->renderBlock('css', get_defined_vars()) /* line 3 */;
 		$this->renderBlock('content', get_defined_vars()) /* line 6 */;
-		$this->renderBlock('js', get_defined_vars()) /* line 58 */;
+		$this->renderBlock('js', get_defined_vars()) /* line 299 */;
 	}
 
 
@@ -99,7 +99,7 @@ final class Template_79a23a9d5d extends Latte\Runtime\Template
                         </div>
                     </div> 
                 </div>  
-                <div class="block mt-20" id="isiberita">
+                <div class="block mt-20 isi-berita" id="isiberita">
                     <span class="shimmer" style="background: #eee;  width: 100%; height: 20px;"></span>
                     <span class="shimmer" style="background: #eee;  width: 100%; height: 20px;"></span>
                     <span class="shimmer" style="background: #eee;  width: 30%; height: 20px; margin-top: 0px;"></span>
@@ -113,8 +113,241 @@ final class Template_79a23a9d5d extends Latte\Runtime\Template
                 <div class="block mt-20" id="blockkomentar"></div>     
             </div>
             <div class="col-4">
-                Kanan
+                <div class="card">
+                    <div class="card-badge">
+                        <label class="badge-label">Terkait</label>
+                    </div>
+                    <div class="card-list overflow-off" id="terkait">
+
+                        <a class="item-list">
+                            <div class="cover-list">
+                                <div class="shimmer" style="width: 100%; height: 100%; background: #eee;"></div>
+                            </div>
+                            <div class="info-list">
+                                <div class="judul">
+                                    <div class="shimmer" style="width: 100%; height: 17px; background: #eee;"></div>
+                                    <div class="shimmer" style="width: 100%; height: 17px; background: #eee; margin-top: 2px"></div>
+                                    <div class="shimmer" style="width:58%; height: 17px; background: #eee; margin-top: 2px"></div>
+                                </div>
+                                <div class="time"><div class="shimmer" style="width:28%; height: 13px; background: #eee; margin-top: 2px"></div></div>
+                            </div>
+                        </a>
+
+                        <a class="item-list">
+                            <div class="cover-list">
+                                <div class="shimmer" style="width: 100%; height: 100%; background: #eee;"></div>
+                            </div>
+                            <div class="info-list">
+                                <div class="judul">
+                                    <div class="shimmer" style="width: 100%; height: 17px; background: #eee;"></div>
+                                    <div class="shimmer" style="width: 100%; height: 17px; background: #eee; margin-top: 2px"></div>
+                                    <div class="shimmer" style="width:58%; height: 17px; background: #eee; margin-top: 2px"></div>
+                                </div>
+                                <div class="time"><div class="shimmer" style="width:28%; height: 13px; background: #eee; margin-top: 2px"></div></div>
+                            </div>
+                        </a>
+
+                        <a class="item-list">
+                            <div class="cover-list">
+                                <div class="shimmer" style="width: 100%; height: 100%; background: #eee;"></div>
+                            </div>
+                            <div class="info-list">
+                                <div class="judul">
+                                    <div class="shimmer" style="width: 100%; height: 17px; background: #eee;"></div>
+                                    <div class="shimmer" style="width: 100%; height: 17px; background: #eee; margin-top: 2px"></div>
+                                    <div class="shimmer" style="width:58%; height: 17px; background: #eee; margin-top: 2px"></div>
+                                </div>
+                                <div class="time"><div class="shimmer" style="width:28%; height: 13px; background: #eee; margin-top: 2px"></div></div>
+                            </div>
+                        </a>
+
+                        <a class="item-list">
+                            <div class="cover-list">
+                                <div class="shimmer" style="width: 100%; height: 100%; background: #eee;"></div>
+                            </div>
+                            <div class="info-list">
+                                <div class="judul">
+                                    <div class="shimmer" style="width: 100%; height: 17px; background: #eee;"></div>
+                                    <div class="shimmer" style="width: 100%; height: 17px; background: #eee; margin-top: 2px"></div>
+                                    <div class="shimmer" style="width:58%; height: 17px; background: #eee; margin-top: 2px"></div>
+                                </div>
+                                <div class="time"><div class="shimmer" style="width:28%; height: 13px; background: #eee; margin-top: 2px"></div></div>
+                            </div>
+                        </a>
+                    
+                    </div>
+                </div>
+
+
+                <div class="card">
+                    <div class="card-badge">
+                        <label class="badge-label">Terbaru</label>
+                    </div>
+                    <div class="card-list overflow-off" id="terbaru">
+
+                        <a class="item-list">
+                            <div class="cover-list">
+                                <div class="shimmer" style="width: 100%; height: 100%; background: #eee;"></div>
+                            </div>
+                            <div class="info-list">
+                                <div class="judul">
+                                    <div class="shimmer" style="width: 100%; height: 17px; background: #eee;"></div>
+                                    <div class="shimmer" style="width: 100%; height: 17px; background: #eee; margin-top: 2px"></div>
+                                    <div class="shimmer" style="width:58%; height: 17px; background: #eee; margin-top: 2px"></div>
+                                </div>
+                                <div class="time"><div class="shimmer" style="width:28%; height: 13px; background: #eee; margin-top: 2px"></div></div>
+                            </div>
+                        </a>
+
+                        <a class="item-list">
+                            <div class="cover-list">
+                                <div class="shimmer" style="width: 100%; height: 100%; background: #eee;"></div>
+                            </div>
+                            <div class="info-list">
+                                <div class="judul">
+                                    <div class="shimmer" style="width: 100%; height: 17px; background: #eee;"></div>
+                                    <div class="shimmer" style="width: 100%; height: 17px; background: #eee; margin-top: 2px"></div>
+                                    <div class="shimmer" style="width:58%; height: 17px; background: #eee; margin-top: 2px"></div>
+                                </div>
+                                <div class="time"><div class="shimmer" style="width:28%; height: 13px; background: #eee; margin-top: 2px"></div></div>
+                            </div>
+                        </a>
+
+                        <a class="item-list">
+                            <div class="cover-list">
+                                <div class="shimmer" style="width: 100%; height: 100%; background: #eee;"></div>
+                            </div>
+                            <div class="info-list">
+                                <div class="judul">
+                                    <div class="shimmer" style="width: 100%; height: 17px; background: #eee;"></div>
+                                    <div class="shimmer" style="width: 100%; height: 17px; background: #eee; margin-top: 2px"></div>
+                                    <div class="shimmer" style="width:58%; height: 17px; background: #eee; margin-top: 2px"></div>
+                                </div>
+                                <div class="time"><div class="shimmer" style="width:28%; height: 13px; background: #eee; margin-top: 2px"></div></div>
+                            </div>
+                        </a>
+
+                        <a class="item-list">
+                            <div class="cover-list">
+                                <div class="shimmer" style="width: 100%; height: 100%; background: #eee;"></div>
+                            </div>
+                            <div class="info-list">
+                                <div class="judul">
+                                    <div class="shimmer" style="width: 100%; height: 17px; background: #eee;"></div>
+                                    <div class="shimmer" style="width: 100%; height: 17px; background: #eee; margin-top: 2px"></div>
+                                    <div class="shimmer" style="width:58%; height: 17px; background: #eee; margin-top: 2px"></div>
+                                </div>
+                                <div class="time"><div class="shimmer" style="width:28%; height: 13px; background: #eee; margin-top: 2px"></div></div>
+                            </div>
+                        </a>
+                    
+                    </div>
+                </div>
             </div>
+
+            <div class="col-12 left-custom">
+                <div class="card">
+                    <!-- 
+                        Slide
+                    
+                    
+                    -->
+
+                    <div class="banner-998-200">
+                        <img src="';
+		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($url)) /* line 205 */;
+		echo 'assets/images/website/banner_5.jpg">
+                    </div>
+
+                    <div class="white-page row right-custom">
+                        <div class="card-badge x-custom">
+                            <label class="badge-label">Edukasi</label>
+                            <button onClick="window.location.href=this.dataset.link" data-link="';
+		echo LR\Filters::escapeHtmlAttr($url) /* line 211 */;
+		echo 'berita/index/edukasi">
+                                <span>Index</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                    <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="card-x" id="edukasi">
+                            <a class="item-list">
+                                <div class="cover-list">
+                                    <div class="shimmer" style="width: 100%; height: 100%; background: #eee;"></div>
+                                </div>
+                                <div class="info-list">
+                                    <div class="judul">
+                                        <div class="shimmer" style="width: 100%; height: 17px; background: #eee;"></div>
+                                        <div class="shimmer" style="width:58%; height: 17px; background: #eee; margin-top: 2px"></div>
+                                    </div>
+                                    <div class="deskripsi">
+                                        <div class="shimmer" style="width: 100%; height: 15px; background: #eee;"></div>
+                                        <div class="shimmer" style="width: 100%; height: 15px; background: #eee;"></div>
+                                        <div class="shimmer" style="width: 60%; height: 15px; background: #eee;"></div>
+                                    </div>
+                                    <div class="time"><div class="shimmer" style="width:28%; height: 13px; background: #eee; margin-top: 2px"></div></div>
+                                </div>
+                            </a>
+
+                            <a class="item-list">
+                                <div class="cover-list">
+                                    <div class="shimmer" style="width: 100%; height: 100%; background: #eee;"></div>
+                                </div>
+                                <div class="info-list">
+                                    <div class="judul">
+                                        <div class="shimmer" style="width: 100%; height: 17px; background: #eee;"></div>
+                                        <div class="shimmer" style="width:58%; height: 17px; background: #eee; margin-top: 2px"></div>
+                                    </div>
+                                    <div class="deskripsi">
+                                        <div class="shimmer" style="width: 100%; height: 15px; background: #eee;"></div>
+                                        <div class="shimmer" style="width: 100%; height: 15px; background: #eee;"></div>
+                                        <div class="shimmer" style="width: 60%; height: 15px; background: #eee;"></div>
+                                    </div>
+                                    <div class="time"><div class="shimmer" style="width:28%; height: 13px; background: #eee; margin-top: 2px"></div></div>
+                                </div>
+                            </a>
+
+                            <a class="item-list">
+                                <div class="cover-list">
+                                    <div class="shimmer" style="width: 100%; height: 100%; background: #eee;"></div>
+                                </div>
+                                <div class="info-list">
+                                    <div class="judul">
+                                        <div class="shimmer" style="width: 100%; height: 17px; background: #eee;"></div>
+                                        <div class="shimmer" style="width:58%; height: 17px; background: #eee; margin-top: 2px"></div>
+                                    </div>
+                                    <div class="deskripsi">
+                                        <div class="shimmer" style="width: 100%; height: 15px; background: #eee;"></div>
+                                        <div class="shimmer" style="width: 100%; height: 15px; background: #eee;"></div>
+                                        <div class="shimmer" style="width: 60%; height: 15px; background: #eee;"></div>
+                                    </div>
+                                    <div class="time"><div class="shimmer" style="width:28%; height: 13px; background: #eee; margin-top: 2px"></div></div>
+                                </div>
+                            </a>
+
+                            <a class="item-list">
+                                <div class="cover-list">
+                                    <div class="shimmer" style="width: 100%; height: 100%; background: #eee;"></div>
+                                </div>
+                                <div class="info-list">
+                                    <div class="judul">
+                                        <div class="shimmer" style="width: 100%; height: 17px; background: #eee;"></div>
+                                        <div class="shimmer" style="width:58%; height: 17px; background: #eee; margin-top: 2px"></div>
+                                    </div>
+                                    <div class="deskripsi">
+                                        <div class="shimmer" style="width: 100%; height: 15px; background: #eee;"></div>
+                                        <div class="shimmer" style="width: 100%; height: 15px; background: #eee;"></div>
+                                        <div class="shimmer" style="width: 60%; height: 15px; background: #eee;"></div>
+                                    </div>
+                                    <div class="time"><div class="shimmer" style="width:28%; height: 13px; background: #eee; margin-top: 2px"></div></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
 </section>
@@ -122,7 +355,7 @@ final class Template_79a23a9d5d extends Latte\Runtime\Template
 	}
 
 
-	/** {block js} on line 58 */
+	/** {block js} on line 299 */
 	public function blockJs(array $ʟ_args): void
 	{
 		extract($this->params);
@@ -250,7 +483,7 @@ fetch(Baseurl + "api/berita/detail/"+beritaID, {
                             </div>
                             <div class="expresi">
                                 <img src="';
-		echo LR\Filters::escapeJs($url) /* line 179 */;
+		echo LR\Filters::escapeJs($url) /* line 420 */;
 		echo 'assets/images/website/emoticon/kaget.png">
                             </div>
                         </div>
@@ -304,6 +537,128 @@ function setPageAktif(x){
         elIsi.innerHTML = konten;
     }
 }
+
+
+/*
+    Terkait
+
+    --------------------
+*/
+let terkait = el(\'#berita\');
+let kat = "";
+if(el(\'#berita\')){
+    kat = "/"+terkait.dataset.id;
+}
+
+fetch(Baseurl + "api/berita/terkait"+kat, {
+    method: \'GET\',
+    headers: HEADER,
+}).then(response => response.json()).then(result => {
+    if(result.message == "OK"){
+        let terkait = document.getElementById("terkait");
+        let konten = "";
+        let link = "";
+        let th = "";
+        for(let i=0; i<result.data.length; i++){
+            th = result.data[i].tglpublis.split(" ")[0].replaceAll("-","/");
+            link = Baseurl +\'berita/baca/\'+th+\'/\'+result.data[i].slug;
+            konten += `
+                <a href="`+link+`" class="item-list">
+                    <div class="cover-list">
+                        <img src="`+result.data[i].cover+`">
+                    </div>
+                    <div class="info-list">
+                        <div class="judul">`+result.data[i].judul+`</div>
+                        <div class="time">`+datetimeConverter.toTimeStamp(result.data[i].tglpublis)+`</div>
+                    </div>
+                </a>
+            `;
+        }
+
+        terkait.innerHTML = konten;
+    }
+}).catch(error => {
+    console.log(error);
+});
+
+
+
+
+/*
+    Terbaru
+
+    --------------------
+*/
+fetch(Baseurl + "api/berita/terbaru", {
+    method: \'GET\',
+    headers: HEADER,
+}).then(response => response.json()).then(result => {
+    if(result.message == "OK"){
+        let terbaru = document.getElementById("terbaru");
+        let konten = "";
+        let link = "";
+        let th = "";
+        for(let i=0; i<result.data.length; i++){
+            th = result.data[i].tglpublis.split(" ")[0].replaceAll("-","/");
+            link = Baseurl +\'berita/baca/\'+th+\'/\'+result.data[i].slug;
+            konten += `
+                <a href="`+link+`" class="item-list">
+                    <div class="cover-list">
+                        <img src="`+result.data[i].cover+`">
+                    </div>
+                    <div class="info-list">
+                        <div class="judul">`+result.data[i].judul+`</div>
+                        <div class="time">`+datetimeConverter.toTimeStamp(result.data[i].tglpublis)+`</div>
+                    </div>
+                </a>
+            `;
+        }
+
+        terbaru.innerHTML = konten;
+    }
+}).catch(error => {
+    console.log(error);
+});
+
+
+/*
+    Edukasi
+
+    --------------------
+*/
+fetch(Baseurl + "api/berita/edukasi", {
+    method: \'GET\',
+    headers: HEADER,
+}).then(response => response.json()).then(result => {
+    if(result.message == "OK"){
+        let edukasi = document.getElementById("edukasi");
+        let konten = "";
+        let link = "";
+        let th = "";
+        for(let i=0; i<result.data.length; i++){
+            th = result.data[i].tglpublis.split(" ")[0].replaceAll("-","/");
+            link = Baseurl +\'berita/baca/\'+th+\'/\'+result.data[i].slug;
+            konten += `
+                <a href="`+link+`" class="item-list">
+                    <div class="cover-list">
+                        <img src="`+result.data[i].cover+`">
+                    </div>
+                    <div class="info-list">
+                        <div class="judul">`+result.data[i].judul+`</div>
+                        <div class="deskripsi">
+                            `+result.data[i].potongan.substr(0,180)+" [...]"+`
+                        </div>
+                        <div class="time">`+datetimeConverter.toTimeStamp(result.data[i].tglpublis)+`</div>
+                    </div>
+                </a>
+            `;
+        }
+
+        edukasi.innerHTML = konten;
+    }
+}).catch(error => {
+    console.log(error);
+});
 </script>
 ';
 	}
