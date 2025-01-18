@@ -48,6 +48,12 @@ class grup extends Schema
             'nama' => 'Pimpinan Redaksi',
             'dibuat' => '2024-06-07 23:06:07',
         ]);
+
+        DB::terhubung()->input('grup', [
+            'id' => 6,
+            'nama' => 'Admin',
+            'dibuat' => '2024-06-07 23:06:07',
+        ]);
     }
 }
 $create = new grup();

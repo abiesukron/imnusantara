@@ -23,7 +23,7 @@ final class Template_07590f06c4 extends Latte\Runtime\Template
 ';
 		$this->renderBlock('content', get_defined_vars()) /* line 4 */;
 		echo "\n";
-		$this->renderBlock('js', get_defined_vars()) /* line 148 */;
+		$this->renderBlock('js', get_defined_vars()) /* line 152 */;
 	}
 
 
@@ -32,7 +32,7 @@ final class Template_07590f06c4 extends Latte\Runtime\Template
 		extract($this->params);
 
 		if (!$this->getReferringTemplate() || $this->getReferenceType() === 'extends') {
-			foreach (array_intersect_key(['k' => '76'], $this->params) as $ʟ_v => $ʟ_l) {
+			foreach (array_intersect_key(['k' => '80'], $this->params) as $ʟ_v => $ʟ_l) {
 				trigger_error("Variable \$$ʟ_v overwritten in foreach on line $ʟ_l");
 			}
 		}
@@ -138,7 +138,11 @@ final class Template_07590f06c4 extends Latte\Runtime\Template
                             <label for=\'cover\' class="mt-20">Ganti Cover</label>
                             <input type="file" class=\'form-control\' id=\'cover\' name=\'cover\' placeholder=\'Cover berita\'>
                             <small>Upload file untuk mengganti cover yang lama</small>
-                        </div>                 
+                        </div>      
+                        <div class=\'form-grup\'>
+                            <label for=\'infogambar\'>Keterangan gambar</label>
+                            <input class=\'form-control\' id=\'infogambar\' name=\'infogambar\' placeholder=\'Informasi gambar\'>
+                        </div>                
                     </div>
                 </div>
             </div>
@@ -151,7 +155,7 @@ final class Template_07590f06c4 extends Latte\Runtime\Template
                         <div class=\'form-grup\'>
                             <label for=\'tag\'>Tag berita</label>
                             <input data-tipe="tag" class=\'form-control\' id=\'tag\' name=\'tag\' value="';
-		echo LR\Filters::escapeHtmlAttr($tag) /* line 68 */;
+		echo LR\Filters::escapeHtmlAttr($tag) /* line 72 */;
 		echo '" placeholder=\'Tag Berita\' autocomplete=\'off\'>
                         </div>
                         <div class="row">
@@ -160,16 +164,16 @@ final class Template_07590f06c4 extends Latte\Runtime\Template
                                     <label for=\'kategoriid\'>Kategori berita</label>
                                     <select class=\'form-control\' id=\'kategoriid\' name=\'kategoriid\'>
                                         <option value="';
-		echo LR\Filters::escapeHtmlAttr($idkategori) /* line 75 */;
+		echo LR\Filters::escapeHtmlAttr($idkategori) /* line 79 */;
 		echo '">';
-		echo LR\Filters::escapeHtmlText($namakategori) /* line 75 */;
+		echo LR\Filters::escapeHtmlText($namakategori) /* line 79 */;
 		echo '</option>
 ';
-		foreach ($kategori as $k) /* line 76 */ {
+		foreach ($kategori as $k) /* line 80 */ {
 			echo '                                            <option value="';
-			echo LR\Filters::escapeHtmlAttr($k->id) /* line 77 */;
+			echo LR\Filters::escapeHtmlAttr($k->id) /* line 81 */;
 			echo '">';
-			echo LR\Filters::escapeHtmlText($k->nama) /* line 77 */;
+			echo LR\Filters::escapeHtmlText($k->nama) /* line 81 */;
 			echo '</option>
 ';
 
@@ -185,9 +189,9 @@ final class Template_07590f06c4 extends Latte\Runtime\Template
                                     <label for=\'komentar\'>Komentar</label>
                                     <select class=\'form-control\' id=\'komentar\' name=\'komentar\'>
                                         <option value="';
-		echo LR\Filters::escapeHtmlComment($komentar) /* line 88 */;
+		echo LR\Filters::escapeHtmlComment($komentar) /* line 92 */;
 		echo '">';
-		echo LR\Filters::escapeHtmlComment(($this->filters->capitalize)($komentar)) /* line 88 */;
+		echo LR\Filters::escapeHtmlComment(($this->filters->capitalize)($komentar)) /* line 92 */;
 		echo '</option>
                                         <option value="aktif">Aktif</option>
                                         <option value="tidak">Matikan</option>
@@ -209,8 +213,8 @@ final class Template_07590f06c4 extends Latte\Runtime\Template
                                 dan berita tetap akan diterbitkan <strong>setelah proses penyuntingan</strong> dari Editor selesai.</div>
                                 <div class="mt-20">
                                     <a href="';
-		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($url)) /* line 108 */;
-		echo LR\Filters::escapeHtmlAttr(\AbieSoft\AsetCode\Utilities\Config::envReader('ADMIN_PREFIX')) /* line 108 */;
+		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($url)) /* line 112 */;
+		echo LR\Filters::escapeHtmlAttr(\AbieSoft\AsetCode\Utilities\Config::envReader('ADMIN_PREFIX')) /* line 112 */;
 		echo '/berita">
                                         <span>Lihat berita-berita yang sudah anda buat disini</span>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -226,9 +230,9 @@ final class Template_07590f06c4 extends Latte\Runtime\Template
                                     <label for=\'publikasi\'>Publikasi</label>
                                     <select class=\'form-control\' id=\'publikasi\' name=\'publikasi\'>
                                         <option value="';
-		echo LR\Filters::escapeHtmlAttr($publikasi) /* line 122 */;
+		echo LR\Filters::escapeHtmlAttr($publikasi) /* line 126 */;
 		echo '">';
-		echo LR\Filters::escapeHtmlText(($this->filters->capitalize)($publikasi)) /* line 122 */;
+		echo LR\Filters::escapeHtmlText(($this->filters->capitalize)($publikasi)) /* line 126 */;
 		echo '</option>
                                         <option value="terbit">Terbit</option>
                                         <option value="draft">Draft</option>
@@ -239,14 +243,14 @@ final class Template_07590f06c4 extends Latte\Runtime\Template
                                 <div class=\'form-grup\'>
                                     <label for=\'jadwal\'>Jadwal Publikasi</label>
                                     <input type="datetime-local" class=\'form-control\' id=\'jadwal\' name=\'jadwal\' value="';
-		echo LR\Filters::escapeHtmlAttr($jadwal) /* line 131 */;
+		echo LR\Filters::escapeHtmlAttr($jadwal) /* line 135 */;
 		echo '" placeholder=\'Jadwal publikasi\' autocomplete=\'off\'>
                                 </div>
                             </div>
                         </div>
                         <div class=\'form-button\'>
                             <input type="hidden" id="id" name="id" value="';
-		echo LR\Filters::escapeHtmlAttr($id) /* line 136 */;
+		echo LR\Filters::escapeHtmlAttr($id) /* line 140 */;
 		echo '">
                             <input type="hidden" id="__method" name="__method" value="PATCH">
                             <button class=\'btn btn-primary\'><span id=\'btnSubmit\'>Simpan Perubahan</span></button>
@@ -261,7 +265,7 @@ final class Template_07590f06c4 extends Latte\Runtime\Template
 	}
 
 
-	/** {block js} on line 148 */
+	/** {block js} on line 152 */
 	public function blockJs(array $ʟ_args): void
 	{
 		echo '<script>

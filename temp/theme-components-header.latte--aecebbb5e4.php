@@ -25,7 +25,9 @@ final class Template_aecebbb5e4 extends Latte\Runtime\Template
 		echo '">
             <div class="flex-between">
                 <div class="header-search">
-                    <input id="search" placeholder="Cari..">
+                    <input id="search" placeholder="Cari.." onClick=\'window.location.href=this.dataset.link\' data-link=\'';
+		echo LR\Filters::escapeHtmlAttr($url) /* line 12 */;
+		echo 'berita/cari/keyword\'>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"></path>
                     </svg>

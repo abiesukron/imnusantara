@@ -39,6 +39,16 @@
     font-size: 12pt;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto';
+    background-color: var(--color-abu-abu);
+    color: var(--color-dark);
+}
+
 a {
     color: var(--color-dark);
 }
@@ -55,18 +65,17 @@ button {
     cursor: pointer;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Roboto';
-    background-color: var(--color-abu-abu);
-    color: var(--color-dark);
+.strong {
+    font-weight: 600;
 }
 
 .block {
     display: block;
+}
+
+.text-center {
+    display: block;
+    text-align: center;
 }
 
 .mt-10 { margin-top: 10px; }
@@ -1388,7 +1397,8 @@ section.putih {
     object-fit: cover;
 }
 
-.read .waktu {
+.read .waktu,
+.read .penulis {
     font-size: 10pt;
 }
 
@@ -1429,6 +1439,32 @@ section.putih {
 
 .read .button-icon-grup > button.wa:hover{
     fill: #128C7E;
+}
+
+.read .button-png-grup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+
+.read .button-png-grup > button{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+}
+
+.read .button-png-grup > button:hover{
+    background-color: var(--color-gray-3);
+}
+
+.read .button-png-grup > button > img{
+    width: 30px;
+    height: 30px;
 }
 
 .read .btn-page {

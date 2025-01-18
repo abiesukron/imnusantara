@@ -177,6 +177,7 @@ class BeritaApi extends Service
         $komentar = Input::get('komentar');
         $publikasi = Input::get('publikasi');
         $jadwal = Input::get('jadwal');
+        $infogambar = Input::get('infogambar');
 
         $input = DB::terhubung()->input("berita", [
             'judul' => $judul,
@@ -189,6 +190,7 @@ class BeritaApi extends Service
             'publikasi' => $publikasi,
             'jadwal' => $jadwal,
             'cover' => $cover,
+            'infogambar' => $infogambar,
             'penulis' => $auth->getId()
         ]);
 
@@ -243,6 +245,7 @@ class BeritaApi extends Service
         } else {
             $cover = Berita::only(id: $id, select: "cover", output: "string");
         }
+        $infogambar = Input::get('infogambar');
 
         $perbarui = DB::terhubung()->perbarui("berita", $id, [
             'judul' => $judul,
@@ -254,7 +257,8 @@ class BeritaApi extends Service
             'komentar' => $komentar,
             'publikasi' => $publikasi,
             'jadwal' => $jadwal,
-            'cover' => $cover
+            'cover' => $cover,
+            'infogambar' => $infogambar
         ]);
 
         if ($perbarui) {
@@ -854,7 +858,7 @@ class BeritaApi extends Service
         $result = [];
         $data=[];
         $idBerita =  $parameter[1];
-        $cekBerita = DB::terhubung()->query("SELECT berita.judul, berita.slug, berita.isi, berita.cover, berita.komentar, berita.jadwal as tglterbit, kategori.nama as namakategori FROM berita, kategori WHERE kategori.id = berita.kategoriid AND berita.id = '".$idBerita."' ");
+        $cekBerita = DB::terhubung()->query("SELECT berita.judul, berita.slug, berita.isi, berita.cover, berita.infogambar, berita.komentar, berita.jadwal as tglterbit, kategori.nama as namakategori, users.nama as penulis FROM berita, kategori, users WHERE kategori.id = berita.kategoriid AND berita.penulis = users.id AND berita.id = '".$idBerita."' ");
         if($cekBerita->hitung()){
             foreach($cekBerita->hasil() as $b){
                 $data['judul'] = $b->judul;
@@ -862,6 +866,8 @@ class BeritaApi extends Service
                 $data['isi'] = Html::htmlToText($b->isi);
                 $data['cover'] = $b->cover;
                 $data['tglterbit'] = $b->tglterbit;
+                $data['infogambar'] = ($b->infogambar) ? 'Foto: ' . $b->infogambar : '';
+                $data['penulis'] = $b->penulis;
                 $data['namakategori'] = $b->namakategori;
                 $data['komentar'] = $b->komentar;
             }

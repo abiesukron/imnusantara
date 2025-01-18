@@ -23,7 +23,7 @@ final class Template_c3348d5d7f extends Latte\Runtime\Template
 ';
 		$this->renderBlock('content', get_defined_vars()) /* line 4 */;
 		echo "\n";
-		$this->renderBlock('js', get_defined_vars()) /* line 135 */;
+		$this->renderBlock('js', get_defined_vars()) /* line 139 */;
 	}
 
 
@@ -32,7 +32,7 @@ final class Template_c3348d5d7f extends Latte\Runtime\Template
 		extract($this->params);
 
 		if (!$this->getReferringTemplate() || $this->getReferenceType() === 'extends') {
-			foreach (array_intersect_key(['k' => '67'], $this->params) as $ʟ_v => $ʟ_l) {
+			foreach (array_intersect_key(['k' => '71'], $this->params) as $ʟ_v => $ʟ_l) {
 				trigger_error("Variable \$$ʟ_v overwritten in foreach on line $ʟ_l");
 			}
 		}
@@ -108,7 +108,11 @@ final class Template_c3348d5d7f extends Latte\Runtime\Template
                         <div class=\'form-grup\'>
                             <label for=\'cover\'>Cover berita</label>
                             <input type="file" class=\'form-control\' id=\'cover\' name=\'cover\' placeholder=\'Cover berita\'>
-                        </div>                 
+                        </div>   
+                        <div class=\'form-grup\'>
+                            <label for=\'infogambar\'>Keterangan gambar</label>
+                            <input class=\'form-control\' id=\'infogambar\' name=\'infogambar\' placeholder=\'Informasi gambar\'>
+                        </div>              
                     </div>
                 </div>
             </div>
@@ -129,11 +133,11 @@ final class Template_c3348d5d7f extends Latte\Runtime\Template
                                     <select class=\'form-control\' id=\'kategoriid\' name=\'kategoriid\'>
                                         <option value="">Kategori Berita</option>
 ';
-		foreach ($kategori as $k) /* line 67 */ {
+		foreach ($kategori as $k) /* line 71 */ {
 			echo '                                            <option value="';
-			echo LR\Filters::escapeHtmlAttr($k->id) /* line 68 */;
+			echo LR\Filters::escapeHtmlAttr($k->id) /* line 72 */;
 			echo '">';
-			echo LR\Filters::escapeHtmlText($k->nama) /* line 68 */;
+			echo LR\Filters::escapeHtmlText($k->nama) /* line 72 */;
 			echo '</option>
 ';
 
@@ -167,8 +171,8 @@ final class Template_c3348d5d7f extends Latte\Runtime\Template
                                 dan berita tetap akan diterbitkan <strong>setelah proses penyuntingan</strong> dari Editor selesai.</div>
                                 <div class="mt-20">
                                     <a href="';
-		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($url)) /* line 97 */;
-		echo LR\Filters::escapeHtmlAttr(\AbieSoft\AsetCode\Utilities\Config::envReader('ADMIN_PREFIX')) /* line 97 */;
+		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($url)) /* line 101 */;
+		echo LR\Filters::escapeHtmlAttr(\AbieSoft\AsetCode\Utilities\Config::envReader('ADMIN_PREFIX')) /* line 101 */;
 		echo '/berita">
                                         <span>Lihat berita-berita yang sudah anda buat disini</span>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -209,7 +213,7 @@ final class Template_c3348d5d7f extends Latte\Runtime\Template
 	}
 
 
-	/** {block js} on line 135 */
+	/** {block js} on line 139 */
 	public function blockJs(array $ʟ_args): void
 	{
 		echo '<script>

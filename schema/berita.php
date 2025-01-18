@@ -17,6 +17,7 @@ class berita extends Schema
         $schema->angka("kategoriid");
         $schema->paragrap("isi");
         $schema->paragrap("cover");
+        $schema->teks("infogambar");
         $schema->angka("penulis");
         $schema->angka("editor");
         $schema->angka("dibaca");
