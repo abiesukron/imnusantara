@@ -4,6 +4,7 @@ namespace App\Service\Api;
 
 use AbieSoft\AsetCode\Auth\Authentication;
 use AbieSoft\AsetCode\Mysql\DB;
+use AbieSoft\AsetCode\Package\Youtube;
 use AbieSoft\AsetCode\Utilities\Config;
 use AbieSoft\AsetCode\Utilities\Input;
 use AbieSoft\AsetCode\Utilities\Guard;
@@ -70,6 +71,7 @@ class BeritaApi extends Service
             return match ($parameter[0]) {
                 'terbaru' => $this->terbaru(),
                 'populer' => $this->populer(),
+                'youtubechannel' => $this->youtubechannel(),
                 'kriminal' => $this->kriminal(),
                 'nasional' => $this->nasional(),
                 'politik' => $this->politik(),
@@ -342,6 +344,11 @@ class BeritaApi extends Service
         $result['message'] = 'OK';
         $result['data'] = $data;
         echo json_encode($result);
+    }
+
+    protected function youtubechannel()
+    {
+        echo Youtube::videoTerbaru(Config::envReader('YOUTUBE_ID'));
     }
 
 

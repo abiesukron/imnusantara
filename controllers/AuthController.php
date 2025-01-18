@@ -46,7 +46,7 @@ class AuthController extends Controller
     public function registrasi()
     {
         if (Seting::only(id: "1", select: "status", output: "string") == "off") {
-            Lanjut::ke("login");
+            Lanjut::ke("auth/tab/login");
         }
 
         $google = new Google;

@@ -45,6 +45,8 @@ class Route
                     } else {
                         $this->get("/" . $path . "/:parameter", [ucfirst(ltrim($k, "_")) . "Controller", "index"]);
                     }
+                }else{
+                    $this->get("/", ["WebsiteController", "index"]);
                 }
                 /* 
                     Api
@@ -64,15 +66,15 @@ class Route
                 /*
                     Api Authentication
                 */
-                $this->get("/login", ["AuthController", "login"]);
-                $this->get("/login/:parameter", ["AuthController", "login"]);
-                $this->get("/registrasi", ["AuthController", "registrasi"]);
-                $this->get("/registrasi/:parameter", ["AuthController", "registrasi"]);
-                $this->get("/reset/kode/:parameter", ["AuthController", "reset"]);
-                $this->post("/api/auth", ["AuthApi", "load"]);
             }
         }
 
+        $this->get("/".Config::envReader('AUTH_PREFIX')."/login", ["AuthController", "login"]);
+        $this->get("/".Config::envReader('AUTH_PREFIX')."/login/:parameter", ["AuthController", "login"]);
+        $this->get("/".Config::envReader('AUTH_PREFIX')."/registrasi", ["AuthController", "registrasi"]);
+        $this->get("/".Config::envReader('AUTH_PREFIX')."/registrasi/:parameter", ["AuthController", "registrasi"]);
+        $this->get("/".Config::envReader('AUTH_PREFIX')."/reset/kode/:parameter", ["AuthController", "reset"]);
+        $this->post("/api/auth", ["AuthApi", "load"]);
         $this->get("/api/csrf", ["CsrfApi", "load"]);
         $this->get("/api/email/:parameter", ["EmailApi", "load"]);
     }
@@ -107,14 +109,15 @@ class Route
 
         $page = explode("/", $path)[1];
 
-        if ($page == "login" || $page == "registrasi" || $page == "reset" || $page == "konfirmasi") {
+        // if ($page == "auth" || $page == "login" || $page == "registrasi" || $page == "reset" || $page == "konfirmasi") {
+        if ($page == explode('/',Config::envReader('AUTH_PREFIX'))[0]) {
             if ($session) {
                 Lanjut::ke(Config::envReader('ADMIN_PREFIX'));
             }
         } else {
             if ($page == Config::envReader('ADMIN_PREFIX')) {
                 if (!$session) {
-                    Lanjut::ke("login");
+                    Lanjut::ke(Config::envReader('AUTH_PREFIX')."/login");
                 }
             }
         }

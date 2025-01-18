@@ -15,7 +15,7 @@ final class Template_39f96c7aa9 extends Latte\Runtime\Template
 
 		echo '<section>
     <div class="container">
-        <div class="row">
+        <div class="row">            
             <div class="col-4">
                 <div class="card">
                     <div class="card-badge">

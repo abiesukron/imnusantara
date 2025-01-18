@@ -56,18 +56,21 @@ trait Request
                 } else {
                     $path = $path;
                 }
-            } else {
-                if (explode("/", $path)[1] !=  "login" && explode("/", $path)[1] != "registrasi" && explode("/", $path)[1] != "konfirmasi" && explode("/", $path)[1] != "api" && explode("/", $path)[1] != "") {
-                    if (explode("/", $path)[1] == "reset") {
-                        $path = "/" . explode("/", $path)[1] . "/" . explode("/", $path)[2] . "/:parameter";
-                    } else {
-                        $path = "/" . explode("/", $path)[1] . "/:parameter";
-                    }
-                } else {
+            } else if (explode("/", $path)[1] == explode('/',Config::envReader('AUTH_PREFIX'))[0]) {
+                if(explode("/", $path)[3] == 'reset'){
+                    $path = explode('/kode/',$path)[0] .'/kode/:parameter';
+                }else{
                     $path = $path;
+                }
+            } else {
+                if(count(explode("/", $path)) <= 2) {
+                    $path = $path;
+                }else{
+                    $path = "/".explode("/", $path)[1].'/:parameter';
                 }
             }
         }
+
         return $path;
     }
 
