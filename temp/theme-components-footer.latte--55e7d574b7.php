@@ -21,30 +21,25 @@ final class Template_55e7d574b7 extends Latte\Runtime\Template
         <div>Hadir, Berbuat, Bermanfaat</div>
     </div>
     <div class="footer-brand-icon">
-        <a href="javascript:void(0)" class="icon">
+        <a href="https://youtube.com/@im_nusantaraofficial?si=ARr7hYI_MaDzSHqz" class="icon">
             <img src="';
 		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($url)) /* line 8 */;
-		echo 'assets/images/website/youtube.png">
+		echo 'assets/images/icon/icons8-youtube-48.png">
         </a>
-        <a href="javascript:void(0)" class="icon">
+        <a href="https://www.instagram.com/im_nusantaraofficial?igsh=aTZ4bDYyYzJ5OWFm" class="icon">
             <img src="';
 		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($url)) /* line 11 */;
-		echo 'assets/images/website/ig.png">
+		echo 'assets/images/icon/icons8-instagram-48.png">
         </a>
-        <a href="javascript:void(0)" class="icon">
-            <img src="';
-		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($url)) /* line 14 */;
-		echo 'assets/images/website/fb.png">
-        </a>
-        <a href="javascript:void(0)" class="icon">
+        <a href="https://x.com/imnusantara_?t=vKCQHnTmwA_0aZIcSmw1TQ&s=08" class="icon">
             <img src="';
 		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($url)) /* line 17 */;
-		echo 'assets/images/website/x.png">
+		echo 'assets/images/icon/icons8-twitter-48.png">
         </a>
-        <a href="javascript:void(0)" class="icon">
+        <a href="https://www.tiktok.com/@im.nusantaraofficial?_t=ZS-8tAESmMmd2F&_r=1" class="icon">
             <img src="';
 		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($url)) /* line 20 */;
-		echo 'assets/images/website/tiktok.png">
+		echo 'assets/images/icon/icons8-tiktok-48.png">
         </a>
     </div>
     <div class="footer-link">

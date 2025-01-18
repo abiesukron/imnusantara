@@ -866,8 +866,8 @@ class BeritaApi extends Service
                 $data['isi'] = Html::htmlToText($b->isi);
                 $data['cover'] = $b->cover;
                 $data['tglterbit'] = $b->tglterbit;
-                $data['infogambar'] = ($b->infogambar) ? 'Foto: ' . $b->infogambar : '';
-                $data['penulis'] = $b->penulis;
+                $data['infogambar'] = ($b->infogambar) ? '<span>Foto: ' . $b->infogambar : '</span>';
+                $data['penulis'] = ($b->penulis) ? '<span>'.$b->penulis.'</span>' : '';
                 $data['namakategori'] = $b->namakategori;
                 $data['komentar'] = $b->komentar;
             }

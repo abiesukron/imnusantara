@@ -215,7 +215,7 @@ fetch(Baseurl + "api/berita/nasional", {
     Kriminal
 
     --------------------
-*/
+
 fetch(Baseurl + "api/berita/kriminal", {
     method: \'GET\',
     headers: HEADER,
@@ -246,6 +246,16 @@ fetch(Baseurl + "api/berita/kriminal", {
 }).catch(error => {
     console.log(error);
 });
+
+*/
+
+
+
+
+
+
+
+
 
 /*
     Politik

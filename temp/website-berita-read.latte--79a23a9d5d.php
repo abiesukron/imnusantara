@@ -89,7 +89,7 @@ final class Template_79a23a9d5d extends Latte\Runtime\Template
                 </div>  
                 <div class="block mt-10">
                     <div>
-                        <div class=\'waktu\' id="blockinfo">
+                        <div class=\'infogambar\' id="blockinfo">
                             <span class="shimmer" style="background: #eee;  width: 150px; height: 20px;"></span>
                         </div>
                         <div class=\'waktu text-center\' id="blockwaktu">
@@ -386,7 +386,6 @@ fetch(Baseurl + "api/berita/detail/"+beritaID, {
     method: \'GET\',
     headers: HEADER,
 }).then(response => response.json()).then(result => {
-    console.log(result);
     if(result.message == "OK"){
         let kategori = result.data.namakategori;
         let judul = result.data.judul;
@@ -401,7 +400,7 @@ fetch(Baseurl + "api/berita/detail/"+beritaID, {
         document.getElementById("blockjudul").innerHTML = judul;
         document.getElementById("blockcover").innerHTML = `<img src=\'`+Baseurl+cover+`\'>`;
         document.getElementById("blockinfo").innerHTML = infogambar;
-        document.getElementById("blockwaktu").innerHTML = `<span class=\'penulis strong\'>`+penulis+`</span> | ` + datetimeConverter.toSimpleTime(waktu);
+        document.getElementById("blockwaktu").innerHTML = `<span class=\'penulis strong\'>`+penulis+`</span> | <span>` + datetimeConverter.toSimpleTime(waktu) + `</span>`;
         document.getElementById("blocksosial").innerHTML = `
             <button onclick="window.location.href=this.dataset.link" data-link="javascript:void(0)">
                 <img src=\'`+Baseurl+`assets/images/icon/icons8-copy-48.png\'>
@@ -481,7 +480,7 @@ fetch(Baseurl + "api/berita/detail/"+beritaID, {
                             </div>
                             <div class="expresi">
                                 <img src="';
-		echo LR\Filters::escapeJs($url) /* line 418 */;
+		echo LR\Filters::escapeJs($url) /* line 417 */;
 		echo 'assets/images/website/emoticon/kaget.png">
                             </div>
                         </div>
