@@ -43,10 +43,9 @@ class Route
                         $this->get("/" . $path . "/read/:parameter", [ucfirst(ltrim($k, "_")) . "Controller", "read"]);
                         $this->get("/" . $path . "/read/:id", [ucfirst(ltrim($k, "_")) . "Controller", "read"]);
                     } else {
+                        $this->get("/" . $path, [ucfirst(ltrim($k, "_")) . "Controller", "index"]);
                         $this->get("/" . $path . "/:parameter", [ucfirst(ltrim($k, "_")) . "Controller", "index"]);
                     }
-                }else{
-                    $this->get("/", ["WebsiteController", "index"]);
                 }
                 /* 
                     Api
@@ -106,10 +105,8 @@ class Route
         $parameter = $this->params();
         $api = explode("/", $path)[1];
         $session = $this->session();
-
         $page = explode("/", $path)[1];
 
-        // if ($page == "auth" || $page == "login" || $page == "registrasi" || $page == "reset" || $page == "konfirmasi") {
         if ($page == explode('/',Config::envReader('AUTH_PREFIX'))[0]) {
             if ($session) {
                 Lanjut::ke(Config::envReader('ADMIN_PREFIX'));

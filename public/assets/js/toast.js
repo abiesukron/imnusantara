@@ -1,18 +1,26 @@
+let timeoutHandle = "";
 function Toast(x) {
 
     if (x.closeBtn) {
         // console.log("Close button true");
     } else {
-        setTimeout(() => {
-            const merror = document.querySelector("#error")
-            // const minfo = document.querySelector("#info")
-            const msuccess = document.querySelector("#success")
-            const mwarning = document.querySelector("#warning")
-            if (merror) { merror.setAttribute("class", "error out") }
-            // if (minfo) { minfo.setAttribute("class", "info out") }
-            if (msuccess) { msuccess.setAttribute("class", "success out") }
-            if (mwarning) { mwarning.setAttribute("class", "warning out") }
-        }, 4000);
+
+        const merror = document.querySelector("#error")
+        // const minfo = document.querySelector("#info")
+        const msuccess = document.querySelector("#success")
+        const mwarning = document.querySelector("#warning")
+        if (merror) { merror.setAttribute("class", "error out") }
+        // if (minfo) { minfo.setAttribute("class", "info out") }
+        if (msuccess) { msuccess.setAttribute("class", "success out") }
+        if (mwarning) { mwarning.setAttribute("class", "warning out") }
+
+        if(timeoutHandle){
+            clearTimeout(timeoutHandle);
+        }
+
+        timeoutHandle = setTimeout(() => {
+            msg.innerHTML = "";
+        }, 5000);
     }
 
 

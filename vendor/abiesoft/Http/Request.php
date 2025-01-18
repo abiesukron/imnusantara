@@ -63,10 +63,10 @@ trait Request
                     $path = $path;
                 }
             } else {
-                if(count(explode("/", $path)) <= 2) {
-                    $path = $path;
-                }else{
+                if(count(explode("/", $path)) > 2) {
                     $path = "/".explode("/", $path)[1].'/:parameter';
+                }else{
+                    $path = $path;
                 }
             }
         }

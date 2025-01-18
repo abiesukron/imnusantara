@@ -47,7 +47,9 @@ final class Template_85c86938d5 extends Latte\Runtime\Template
     <div class="auth-container">
         <div class="form">
             <div class="card">
-                <div class="logo"><img src=\'assets/images/logo_login.png\' onClick=\'window.location.href=this.dataset.link\' data-link="';
+                <div class="logo"><img src=\'';
+		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($url)) /* line 20 */;
+		echo 'assets/images/logo_login.png\' onClick=\'window.location.href=this.dataset.link\' data-link="';
 		echo LR\Filters::escapeHtmlAttr($url) /* line 20 */;
 		echo '"></div>
                 <div class="label"><h3>';
@@ -92,7 +94,9 @@ final class Template_85c86938d5 extends Latte\Runtime\Template
             </div>
         </div>
         <div class="cover">
-            <img class="logo" src="assets/images/logo.png">
+            <img class="logo" src="';
+		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($url)) /* line 53 */;
+		echo 'assets/images/logo.png">
         </div>
     </div>
     <div id="toasthere"></div>

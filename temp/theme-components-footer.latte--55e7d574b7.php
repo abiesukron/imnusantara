@@ -43,15 +43,21 @@ final class Template_55e7d574b7 extends Latte\Runtime\Template
         </a>
     </div>
     <div class="footer-link">
-        <a href="javascript:void(0)">Tentang Kami</a>
-        <a href="javascript:void(0)">Tim Redaksi</a>
-        <a href="javascript:void(0)">Kontak Kami</a>
+        <a href="';
+		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($url)) /* line 24 */;
+		echo 'info/tentang-kami">Tentang Kami</a>
+        <a href="';
+		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($url)) /* line 25 */;
+		echo 'info/redaksi">Tim Redaksi</a>
+        <a href="';
+		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($url)) /* line 26 */;
+		echo 'info/kontak">Kontak Kami</a>
     </div>
     <div class="footer-menu">
         <ul>
-            <li><a href="javascript:void(0)">Berita Terbaru</a></li>
-            <li><a href="javascript:void(0)">Liputan Khusus</a></li>
-            <li><a href="javascript:void(0)">Klik Poling</a></li>
+            <li><a href="';
+		echo LR\Filters::escapeHtmlAttr(LR\Filters::safeUrl($url)) /* line 30 */;
+		echo 'poling">Klik Poling</a></li>
         </ul>
     </div>
     <div class="footer-copy">

@@ -17,7 +17,7 @@
     <div class="auth-container">
         <div class="form">
             <div class="card">
-                <div class="logo"><img src='assets/images/logo_login.png' onClick='window.location.href=this.dataset.link' data-link="{$url}"></div>
+                <div class="logo"><img src='{$url}assets/images/logo_login.png' onClick='window.location.href=this.dataset.link' data-link="{$url}"></div>
                 <div class="label"><h3>{$page}</h3></div>
                 <form method="post" id="formInput" name="formInput">
                     <div class="form-grup">
@@ -48,7 +48,7 @@
         </div>
         <div class="cover">
             {* <img src="assets/images/website/login_wall.jpg"> *}
-            <img class="logo" src="assets/images/logo.png">
+            <img class="logo" src="{$url}assets/images/logo.png">
         </div>
     </div>
     <div id="toasthere"></div>

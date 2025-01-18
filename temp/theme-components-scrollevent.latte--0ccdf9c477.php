@@ -18,7 +18,9 @@ final class Template_0ccdf9c477 extends Latte\Runtime\Template
         <path fill-rule="evenodd" d="M11.47 2.47a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 1 1-1.06 1.06l-6.22-6.22V21a.75.75 0 0 1-1.5 0V4.81l-6.22 6.22a.75.75 0 1 1-1.06-1.06l7.5-7.5Z" clip-rule="evenodd"></path>
     </svg>
 </div>
-<div class="buttonPolling">
+<div class="buttonPolling" onClick=\'window.location.href=this.dataset.link\' data-link=\'';
+		echo LR\Filters::escapeHtmlAttr($url) /* line 6 */;
+		echo 'poling\'>
     <label>Klik Poling</label>
     <div class="lingkaran">
         <div class="inside">
