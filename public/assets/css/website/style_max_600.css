@@ -320,4 +320,31 @@
         transition: all .5s;
     }
 
+    .grid-content {
+        display: grid;
+        grid-template-columns: 100%;
+        gap: 13px;
+    }
+
+    .grid-content > .item-list > .cover-list{
+        width: 100%;
+        height: 220px;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    
+    .grid-content > .item-list > .cover-list > img{
+        width: 100%;
+        height: 220px;
+        transition: all .5s;
+    }
+    
+    .grid-content > .item-list:hover > .cover-list > img{
+        width: 110%;
+        height: 230px;
+        margin-top: -10px;
+        margin-left: -10px;
+        transition: all .5s;
+    }
+
 }
